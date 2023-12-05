@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3774196145696882478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3774196145696882464}
+  - component: {fileID: 3774196145696882479}
+  m_Layer: 0
+  m_Name: Dialogue Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3774196145696882464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3774196145696882478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3774196145696882479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3774196145696882478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcd0c1d46cc5264f922e65478743322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayCycleSystem: {fileID: 0}
+  dayPresets:
+  - timePhase: {fileID: 11400000, guid: b7e3d1eba2e839b42a1cce070710f3e3, type: 2}
+    colour: {r: 1, g: 0.8915094, b: 0.97235143, a: 0}
+    textboxImage: {fileID: 0}
+  - timePhase: {fileID: 11400000, guid: c5008214b7fa68541b39cb68016e3697, type: 2}
+    colour: {r: 0.8066038, g: 1, b: 0.9841338, a: 0}
+    textboxImage: {fileID: 0}
+  - timePhase: {fileID: 11400000, guid: 75a4266d8994cef498cb58c823681d63, type: 2}
+    colour: {r: 0.9716981, g: 0.8708044, b: 0.66460484, a: 0}
+    textboxImage: {fileID: 0}
+  - timePhase: {fileID: 11400000, guid: 2924ccc6cd85c074986db0d463ec0963, type: 2}
+    colour: {r: 0.5995308, g: 0.53626734, b: 0.9716981, a: 0}
+    textboxImage: {fileID: 0}
+  textBox: {fileID: 0}
+  text: {fileID: 0}

@@ -7,10 +7,18 @@ public class InteractBase : MonoBehaviour
     [SerializeField] bool canInteract = true;
 
     [System.Serializable]
-    struct InteractTypes
+    struct InteractTimeTypes
     {
         bool affeectedByTime;
         TimePhaseObject timePhase;
+        
+    }
+
+    enum InteractTypes
+    {
+        None = 0,
+        Delete = 1,
+        Follow = 2,
         
     }
 

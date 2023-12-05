@@ -30,9 +30,10 @@ public class DayCycleSystem : MonoBehaviour
     [SerializeField] float totalTime;
     [SerializeField] private float secondsBetweenTimeTicks = 1;
     [SerializeField] List<TimeNote> timeNotes = new List<TimeNote>();
+    public TimeNote curTimeNote;
 
     private bool progressTime = true;
-    private int currentTimeNote = 0;
+    private int currentTimeNoteIndex = 0;
     private float dayTimer = 0;
     private float currentPhaseTimer = 0;
 
@@ -61,7 +62,7 @@ public class DayCycleSystem : MonoBehaviour
             timeSlider.maxValue = totalTime;
             timeSlider.value = dayTimer;
         }
-
+        curTimeNote = timeNotes[0];
         UpdateFeatures();
     }
 
@@ -78,14 +79,14 @@ public class DayCycleSystem : MonoBehaviour
             case LoopState.LoopAtEndOfTime: 
                 if (dayTimer >= totalTime)
                 {
-                    currentTimeNote = 0;
+                    currentTimeNoteIndex = 0;
                     dayTimer= 0;
                     UpdateFeatures();
                 }
                 
                 break;
             case LoopState.LoopAtEndOfPhases:
-                if (currentTimeNote >= timeNotes.Count-1 && currentPhaseTimer >= timeNotes[currentTimeNote].duration)
+                if (currentTimeNoteIndex >= timeNotes.Count-1 && currentPhaseTimer >= timeNotes[currentTimeNoteIndex].duration)
                 {
                     currentPhaseTimer = 0;
                     UpdateFeatures();
@@ -96,9 +97,9 @@ public class DayCycleSystem : MonoBehaviour
 
 
         
-        if (currentPhaseTimer >= timeNotes[currentTimeNote].duration && currentTimeNote < timeNotes.Count-1)
+        if (currentPhaseTimer >= timeNotes[currentTimeNoteIndex].duration && currentTimeNoteIndex < timeNotes.Count-1)
         {
-            currentTimeNote++;
+            currentTimeNoteIndex++;
             currentPhaseTimer = 0;
             UpdateFeatures();
 
@@ -110,14 +111,14 @@ public class DayCycleSystem : MonoBehaviour
             timeSlider.value = dayTimer;
         }
 
-        if (timeNotes[currentTimeNote].slowTransition)
+        if (timeNotes[currentTimeNoteIndex].slowTransition)
         {
             foreach (Light light in sceneLights)
             {
-                light.color = Color.LerpUnclamped(timeNotes[currentTimeNote].timePhase.colour, timeNotes[currentTimeNote + 1].timePhase.colour, currentPhaseTimer / timeNotes[currentTimeNote].duration);
+                light.color = Color.LerpUnclamped(timeNotes[currentTimeNoteIndex].timePhase.colour, timeNotes[currentTimeNoteIndex + 1].timePhase.colour, currentPhaseTimer / timeNotes[currentTimeNoteIndex].duration);
 
             }
-            //currentColour = Color.LerpUnclamped(timeNotes[currentTimeNote].timePhase.colour, timeNotes[currentTimeNote + 1].timePhase.colour, currentPhaseTimer/timeNotes[currentTimeNote].duration);
+            
         }
 
     }
@@ -130,6 +131,7 @@ public class DayCycleSystem : MonoBehaviour
 
     void UpdateFeatures()
     {
+        curTimeNote = timeNotes[currentTimeNoteIndex];
         if (handlesUI)
         {
             UpdateUI();
@@ -150,7 +152,7 @@ public class DayCycleSystem : MonoBehaviour
     {
         if (timeOfDayText)
         {
-            timeOfDayText.text = timeNotes[currentTimeNote].timePhase.phaseName;
+            timeOfDayText.text = timeNotes[currentTimeNoteIndex].timePhase.phaseName;
         }
 
         if (timeSlider)
@@ -163,7 +165,7 @@ public class DayCycleSystem : MonoBehaviour
     {
         foreach (Light light in sceneLights)
         {
-            light.color = timeNotes[currentTimeNote].timePhase.colour;
+            light.color = timeNotes[currentTimeNoteIndex].timePhase.colour;
             
         }
     }
@@ -177,9 +179,10 @@ public class DayCycleSystem : MonoBehaviour
         }
     }
     
-    public int CurrentTimeNote { get => currentTimeNote; set => currentTimeNote = value; }
+    public int CurrentTimeNote { get => currentTimeNoteIndex; set => currentTimeNoteIndex = value; }
     public float DayTimer { get => dayTimer; set => dayTimer = value; }
     public float CurrentPhaseTimer { get => currentPhaseTimer; set => currentPhaseTimer = value; }
     public float TotalTime { get => totalTime; set => totalTime = value; }
     public float SecondsBetweenTimeTicks { get => secondsBetweenTimeTicks; set => secondsBetweenTimeTicks = value; }
+
 }

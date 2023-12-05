@@ -7,6 +7,4 @@ public class TimePhaseObject : ScriptableObject
 {
     [SerializeField] public string phaseName;
     [SerializeField] public Color colour;
-    
-
 }

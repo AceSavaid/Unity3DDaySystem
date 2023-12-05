@@ -13,5 +13,8 @@ public class DebugMenu : MonoBehaviour
     [SerializeField] TMP_Text phaseTimeText;
     [SerializeField] TMP_Text dayTimeText;
 
-
+    private void Awake()
+    {
+        
+    }
 }
