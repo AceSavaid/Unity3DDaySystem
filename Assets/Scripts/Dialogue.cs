@@ -8,18 +8,26 @@ public class Dialogue : MonoBehaviour
     struct dialogueGroup
     {
         string text;
+        bool affeectedByTime;
         TimePhaseObject timePhase;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] List<dialogueGroup> dialogue;
+    [SerializeField] int dilogueIndex;
+
+
+    void DisplayText()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void HideText()
     {
-        
+
+    }
+    
+    void UpdateIndex()
+    {
+        dilogueIndex++;
     }
 }

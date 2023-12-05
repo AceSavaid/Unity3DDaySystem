@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89e2bc7a6cc994459295298b47e91c6, type: 3}
   m_Name: NightTime
   m_EditorClassIdentifier: 
+  phaseName: Night
   colour: {r: 0.122025214, g: 0.11258457, b: 0.4339623, a: 0}
-  name: 
