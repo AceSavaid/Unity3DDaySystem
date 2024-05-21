@@ -7,16 +7,20 @@ public class Dialogue : MonoBehaviour
     [System.Serializable]
     public struct dialogueGroup
     {
+        [Tooltip("Text that entity should say")]
         public string text;
-        bool affeectedByTime;
+        //[Tooltip("Whether or not this text should be shown based on the time of day")]
+        //public bool affeectedByTime;
+        [Tooltip("If Affected by Time is selected, what time of day that text should be shown.")]
         public TimePhaseObject timePhase;
 
         public string Text { get => text; set => text = value; }
     }
-
+    [Tooltip("Dialoge that should be said. \nNOTE WORK IN PROGRESS \n Can currently only read 1 line of dialogue.")]
     [SerializeField] public List<dialogueGroup> dialogue;
-    [SerializeField] int dilogueIndex;
-    bool canTrigger;
+    
+    private int dilogueIndex;
+    private bool canTrigger;
 
 
     private void Update()
@@ -29,7 +33,6 @@ public class Dialogue : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         canTrigger = true;
-        Debug.Log("In range");
     }
 
     private void OnTriggerExit(Collider other)

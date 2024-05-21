@@ -7,22 +7,28 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
-    [SerializeField] DayCycleSystem dayCycleSystem;
+    [SerializeField] private DayCycleSystem dayCycleSystem;
     [System.Serializable]
     public struct DayPreset
     {
+        [Tooltip("The custom object that stores the data of the day. You can create your own or use one of the preset ones.")]
         public TimePhaseObject timePhase;
+        [Tooltip("The colour that you want to set the textbox to be.")]
         public Color colour;
+        [Tooltip("If the background of the textbox should change, place the image here.\nLeave blank if no change.")]
         public Image textboxImage;
     }
 
-    [SerializeField] List<DayPreset> dayPresets = new List<DayPreset>();
-    DayPreset curDayPreset;
-    [SerializeField] Image textBox;
-    [SerializeField] TMP_Text text;
+    [Tooltip("Lists of all potential times of day that the dialogue box should change")]
+    [SerializeField] private List<DayPreset> dayPresets = new List<DayPreset>();
+    private DayPreset curDayPreset;
+    [Tooltip("Image that is to be used as the background for the text.")]
+    [SerializeField] private Image uiTextBox;
+    [Tooltip("Text field being used for dialogue.")]
+    [SerializeField] private TMP_Text text;
 
-    Dialogue dialogue;
-    Dialogue.dialogueGroup dialogueGroup;
+    private Dialogue dialogue;
+    private Dialogue.dialogueGroup dialogueGroup;
     
     bool dialogueOpen = false;
 
@@ -38,7 +44,7 @@ public class DialogueSystem : MonoBehaviour
     {
         foreach (Dialogue.dialogueGroup group in dialogue.dialogue)
         {
-            if (group.timePhase == dayCycleSystem.curTimeNote.timePhase)
+            if (group.timePhase == dayCycleSystem.CurTimeNote.timePhase)
             {
                 dialogueGroup = group;
                 foreach(DayPreset dayPreset in dayPresets)
@@ -51,18 +57,18 @@ public class DialogueSystem : MonoBehaviour
             }
         }
 
-        textBox.color = curDayPreset.colour;
-        /*
+        uiTextBox.color = curDayPreset.colour;
+        
         if(curDayPreset.textboxImage!= null)
         {
-            textBox.sprite = curDayPreset.textboxImage.sprite;
-        }*/
+            uiTextBox.sprite = curDayPreset.textboxImage.sprite;
+        }
         
 
     }
     void DisplayText()
     {
-        textBox.gameObject.SetActive(true);
+        uiTextBox.gameObject.SetActive(true);
         text.text= dialogueGroup.Text ;
 
         dialogueOpen = true;
@@ -70,7 +76,7 @@ public class DialogueSystem : MonoBehaviour
 
     void HideText()
     {
-        textBox.gameObject.SetActive(false);
+        uiTextBox.gameObject.SetActive(false);
         text.text = string.Empty;
         dialogueOpen = false;
     }

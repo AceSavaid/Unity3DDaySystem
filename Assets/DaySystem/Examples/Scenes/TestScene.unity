@@ -858,6 +858,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 623755153}
     - target: {fileID: 3774196145696882479, guid: 81c6a8cd7410c9c409673fd442658ca3, type: 3}
+      propertyPath: uiTextBox
+      value: 
+      objectReference: {fileID: 623755153}
+    - target: {fileID: 3774196145696882479, guid: 81c6a8cd7410c9c409673fd442658ca3, type: 3}
       propertyPath: dayCycleSystem
       value: 
       objectReference: {fileID: 31433907}
@@ -1015,5 +1019,21 @@ PrefabInstance:
       propertyPath: timeNotes.Array.data[4].timePhase
       value: 
       objectReference: {fileID: 11400000, guid: f9b142979c91b204298ba632c023e510, type: 2}
+    - target: {fileID: 8346990247958142853, guid: 4a64ba79e39b68c43bdb086aef1c3abe, type: 3}
+      propertyPath: timeNotes.Array.data[0].slowTransition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346990247958142853, guid: 4a64ba79e39b68c43bdb086aef1c3abe, type: 3}
+      propertyPath: timeNotes.Array.data[1].slowTransition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346990247958142853, guid: 4a64ba79e39b68c43bdb086aef1c3abe, type: 3}
+      propertyPath: timeNotes.Array.data[2].slowTransition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346990247958142853, guid: 4a64ba79e39b68c43bdb086aef1c3abe, type: 3}
+      propertyPath: timeNotes.Array.data[3].slowTransition
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a64ba79e39b68c43bdb086aef1c3abe, type: 3}
