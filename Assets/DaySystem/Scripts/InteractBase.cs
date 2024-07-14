@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Dialogue;
 
 public class InteractBase : MonoBehaviour
 {
@@ -11,16 +12,17 @@ public class InteractBase : MonoBehaviour
     {
         bool affeectedByTime;
         TimePhaseObject timePhase;
-        
+        InteractTypes interactTypes;
     }
 
     enum InteractTypes
     {
         None = 0,
         Delete = 1,
-        Follow = 2,
+        Hide = 2,
         
     }
+    [SerializeField] List<InteractTimeTypes> interactTimes;
 
     public virtual void Interact()
     {

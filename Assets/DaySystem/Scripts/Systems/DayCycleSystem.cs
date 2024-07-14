@@ -56,7 +56,7 @@ public class DayCycleSystem : MonoBehaviour
     [Header("UI")]
     [Tooltip("Should this system handle any UI features?")]
     [SerializeField] bool handlesUI = false;
-    [Tooltip("A slider/guage that you wish to display the time of day on (like a clock or timer)")]
+    [Tooltip("A slider/guage that you wish to display the time of day on (like a clock or timer).")]
     [SerializeField] Slider timeSlider;
     [Tooltip("A text feild that you wish to display the name of the current time of day.")]
     [SerializeField] TMP_Text timeOfDayText;

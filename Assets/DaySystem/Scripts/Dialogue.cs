@@ -22,12 +22,15 @@ public class Dialogue : MonoBehaviour
     private int dilogueIndex;
     private bool canTrigger;
 
+    [SerializeField] KeyCode interactKey = KeyCode.E;
+
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.E) && canTrigger) {
+        if(Input.GetKeyUp(interactKey) && canTrigger) {
             FindObjectOfType<DialogueSystem>().setDialogue(this);
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
